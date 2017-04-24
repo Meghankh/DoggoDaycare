@@ -12,10 +12,10 @@ import com.doggo.doggydaycare.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class dogProfileFragment extends Fragment {
+public class DogProfileFragment extends Fragment {
 
-
-    public dogProfileFragment() {
+    public static final String DOG_PROFILE_FRAGMENT= "Dog Profile Fragment";
+    public DogProfileFragment() {
         // Required empty public constructor
     }
 
