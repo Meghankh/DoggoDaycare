@@ -15,13 +15,13 @@ import android.widget.ImageButton;
 public class LoginActivity extends Activity implements View.OnClickListener{
 
     private EditText password, username;
-    private Button login;
+    private ImageButton login;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
-        login = (Button)findViewById(R.id.login);
+        login = (ImageButton)findViewById(R.id.login);
         login.setOnClickListener(this);
 
         password = (EditText)findViewById(R.id.password);
