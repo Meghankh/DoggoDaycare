@@ -3,10 +3,11 @@ package com.doggo.doggydaycare.data;
 import java.util.ArrayList;
 
 /**
- * Created by meghankh on 4/22/2017.
+ * Created by Meghan on 4/22/2017.
  */
 
-public class Owner {
+public class Owner
+{
     private String firstName;
     private String lastName;
     private ArrayList<Dog> dogs;
@@ -21,6 +22,7 @@ public class Owner {
     {
         dogs.add(dog);
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -40,5 +42,4 @@ public class Owner {
     public ArrayList<Dog> getDogs() {
         return dogs;
     }
-
 }

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#f24a12</color>
+    <color name="colorPrimaryDark">#ea782307</color>
+    <color name="colorAccent">#000000</color>
+    <color name="dark">#303030</color>
+    <color name="light">#6e6969</color>
+    <color name="gold">#beae25</color>
+    <color name="red">#ff000d</color>
+
+    <color name="table_data_row_even">#11c7cad9</color>
+    <color name="table_data_row_odd">#ffffffff</color>
 </resources>

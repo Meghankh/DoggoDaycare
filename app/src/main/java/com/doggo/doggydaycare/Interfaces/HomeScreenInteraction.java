@@ -1,4 +1,4 @@
-package com.doggo.doggydaycare.Interfaces;
+package com.doggo.doggydaycare.interfaces;
 
 /**
  * Created by meghankh on 4/24/2017.

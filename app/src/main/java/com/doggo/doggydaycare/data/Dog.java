@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- * Created by meghankh on 4/22/2017.
+ * Created by Meghan on 4/22/2017.
  */
 
 public class Dog {
@@ -83,8 +83,4 @@ public class Dog {
     public void setMedications(String[] medications) {
         this.medications = medications;
     }
-
-
-
-
 }

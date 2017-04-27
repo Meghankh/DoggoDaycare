@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+
+    >
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="89dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/ic_my_steps"
+        android:id="@+id/myStepsFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="103dp"
+        android:layout_height="77dp"
+        app:srcCompat="@drawable/ic_my_rank"
+        android:id="@+id/teamFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="93dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/ic_team_steps"
+        android:id="@+id/imageView3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="103dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/ic_team_rank"
+        android:id="@+id/teamsRankFragment"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myrank"
+
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/teamFragment"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamrank"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintRight_toLeftOf="@+id/teamsRankFragment"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamsteps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView3" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamgoal"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/myStepsFragment"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mysteps"
+        app:layout_constraintTop_toBottomOf="@+id/teamgoal"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/myStepsFragment" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mygoal"
+        app:layout_constraintBottom_toTopOf="@+id/teamsteps"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView3" />
+</android.support.constraint.ConstraintLayout>

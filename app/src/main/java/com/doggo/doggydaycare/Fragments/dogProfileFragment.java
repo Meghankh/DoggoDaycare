@@ -1,4 +1,4 @@
-package com.doggo.doggydaycare.Fragments;
+package com.doggo.doggydaycare.fragments;
 
 
 import android.os.Bundle;

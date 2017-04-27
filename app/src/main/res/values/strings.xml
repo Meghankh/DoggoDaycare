@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">DoggyDaycare</string>
+    <string name="app_name">HW5</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_label">login</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="message">Send A Message</string>
+    <string name="settings">Settings</string>
+    <string name="login_url">http://128.173.239.242/login</string>
+
+    <string name="logged_in_url">http://128.173.239.242/loggedin</string>
+    <string name="logout_url">http://128.173.239.242/logout</string>
+    <string name="base_url">http://128.173.239.242</string>
+    <string name="cookies_header">Set-Cookie</string>
 </resources>
