@@ -17,9 +17,8 @@ import com.doggo.doggydaycare.R;
 import com.doggo.doggydaycare.interfaces.HomeScreenInteraction;
 
 /**
- * Created by Andrey on 2/16/2017.
+ * Created by Meghan on 2/16/2017.
  */
-
 public class HomeScreenFragment extends Fragment implements View.OnClickListener {
 
 

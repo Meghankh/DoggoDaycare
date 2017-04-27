@@ -23,7 +23,7 @@ import com.doggo.doggydaycare.interfaces.ActivityInteraction;
 import com.doggo.doggydaycare.interfaces.HomeScreenInteraction;
 import com.doggo.doggydaycare.interfaces.RetainedFragmentInteraction;
 
-public class MainActivity extends AppCompatActivity implements HomeScreenInteraction,ActivityInteraction
+public class MainActivity extends AppCompatActivity implements HomeScreenInteraction, ActivityInteraction
 {
     private Fragment homeScreenFragment,taskFragment,myStepsFragment, teamFragment;
 

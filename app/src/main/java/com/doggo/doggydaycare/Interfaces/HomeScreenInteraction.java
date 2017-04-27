@@ -1,11 +1,9 @@
 package com.doggo.doggydaycare.interfaces;
 
 /**
- * Created by meghankh on 4/24/2017.
+ * Created by Meghan on 4/24/2017.
  */
-
-public interface HomeScreenInteraction {
-
+public interface HomeScreenInteraction
+{
     void changeFragment(String fragment_name);
-
 }

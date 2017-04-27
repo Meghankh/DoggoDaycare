@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Created by Meghan on 4/22/2017.
  */
-
 public class Owner
 {
     private String firstName;

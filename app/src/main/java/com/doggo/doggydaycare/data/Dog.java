@@ -6,7 +6,6 @@ import java.sql.Time;
 /**
  * Created by Meghan on 4/22/2017.
  */
-
 public class Dog {
 
     private String name;
