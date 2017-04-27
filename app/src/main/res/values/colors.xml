@@ -7,7 +7,6 @@
     <color name="light">#6e6969</color>
     <color name="gold">#beae25</color>
     <color name="red">#ff000d</color>
-
     <color name="table_data_row_even">#11c7cad9</color>
     <color name="table_data_row_odd">#ffffffff</color>
 </resources>

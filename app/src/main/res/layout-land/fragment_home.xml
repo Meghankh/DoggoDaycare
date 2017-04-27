@@ -5,9 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
-
-    >
+    android:background="@drawable/login_background">
 
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="89dp"
@@ -99,4 +97,5 @@
         app:layout_constraintBottom_toTopOf="@+id/teamsteps"
         android:layout_marginStart="8dp"
         app:layout_constraintLeft_toRightOf="@+id/imageView3" />
+
 </android.support.constraint.ConstraintLayout>

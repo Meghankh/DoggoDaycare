@@ -3,16 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Base.V21.Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-
-
         <item name="android:colorPrimary">@color/colorPrimary</item>
-    <!--   darker variant for the status bar and contextual app bars -->
-    <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
-    <!--   theme UI controls like checkboxes and text fields -->
-    <item name="android:colorAccent">@color/colorAccent</item>
-
-
+        <!-- darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/colorAccent</item>
     </style>
-
 
 </resources>

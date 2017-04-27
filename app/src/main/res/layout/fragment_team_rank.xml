@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context="cs3714.hw5.fragments.TeamsRankFragment">
-
+    tools:context="com.doggo.doggydaycare.fragments.TeamsRankFragment">
 
     <ListView
         android:id="@+id/teams"
@@ -19,5 +18,6 @@
         custom:layout_constraintTop_toTopOf="parent"
         custom:layout_constraintHorizontal_bias="0.0"
         custom:layout_constraintVertical_bias="0.0" />
+
 </android.support.constraint.ConstraintLayout>
 
