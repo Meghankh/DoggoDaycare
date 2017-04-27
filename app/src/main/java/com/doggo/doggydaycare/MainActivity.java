@@ -25,7 +25,7 @@ import com.doggo.doggydaycare.interfaces.RetainedFragmentInteraction;
 
 public class MainActivity extends AppCompatActivity implements HomeScreenInteraction, ActivityInteraction
 {
-    private Fragment homeScreenFragment,taskFragment,myStepsFragment, teamFragment;
+    private Fragment homeScreenFragment, taskFragment, myStepsFragment, teamFragment;
 
     private SharedPreferences prefs;
     private FragmentManager fragmentManager;
@@ -105,10 +105,10 @@ public class MainActivity extends AppCompatActivity implements HomeScreenInterac
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-
+            // TODO
         }
         else if (id == R.id.action_message) {
-
+            // TODO
         }
 
         else if (id == R.id.action_logout) {
@@ -130,17 +130,17 @@ public class MainActivity extends AppCompatActivity implements HomeScreenInterac
         if (fragment_name.equals(TeamFragment.TAG_TEAM_FRAGMENT))
         {
             fragmentClass = TeamFragment.class;
-            Log.d("HW2", "team fragment selected");
+            Log.d("doggo", "team fragment selected");
         }
         else if (fragment_name.equals(MyStepsFragment.TAG_MY_STEPS_FRAGMENT))
         {
             fragmentClass = MyStepsFragment.class;
-            Log.d("HW2", "team fragment selected");
+            Log.d("doggo", "team fragment selected");
         }
         else if (fragment_name.equals(TeamsRankFragment.TAG_TEAM_RANK_FRAGMENT))
         {
             fragmentClass = TeamsRankFragment.class;
-            Log.d("HW2", "team rank fragment selected");
+            Log.d("doggo", "team rank fragment selected");
         }
 
         try
@@ -159,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements HomeScreenInterac
         {
             e.printStackTrace();
         }
-
     }
 
     @Override

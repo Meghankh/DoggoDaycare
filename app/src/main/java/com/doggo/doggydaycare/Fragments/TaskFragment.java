@@ -38,53 +38,59 @@ public class TaskFragment extends Fragment implements RetainedFragmentInteractio
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
 
-    public TaskFragment() {
+    public TaskFragment()
+    {
         // Required empty public constructor
     }
 
     @Override
-    public void onResume() {
+    public void onResume()
+    {
         super.onResume();
-
-
     }
 
-    public String getActiveFragmentTag() {
+    public String getActiveFragmentTag()
+    {
         return mActiveFragmentTag;
     }
 
-    public void setActiveFragmentTag(String s) {
+    public void setActiveFragmentTag(String s)
+    {
         mActiveFragmentTag = s;
     }
 
     @Override
-    public void checkIfLoggedIn() {
+    public void checkIfLoggedIn()
+    {
         logincheck = new IsUserLoggedInAsyncTask(getActivity(), this);
         logincheck.execute();
     }
 
     @Override
-    public void loginResult(String result) {
-
-        Log.d("hw3","login check:"+result);
-        if(result.equals(Constants.STATUS_RELOGIN)){
+    public void loginResult(String result)
+    {
+        Log.d("doggo", "login check:" + result);
+        if (result.equals(Constants.STATUS_RELOGIN))
+        {
             activity.InitiateLoginActivity();
         }
-
     }
 
     // checks if the background service is running
     public boolean isBackgroundServiceRunning() {
         ActivityManager manager = (ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            Log.d("background_service", "Checking");
-            if (BackgroundService.class.getName().equals(service.service.getClassName())) {
-                Log.d("background_service", "BackgroundService is already running!");
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE))
+        {
+            Log.d("doggo", "Checking");
+            if (BackgroundService.class.getName().equals(service.service.getClassName()))
+            {
+                Log.d("doggo", "BackgroundService is already running!");
                 return true;
             }
         }
@@ -92,13 +98,14 @@ public class TaskFragment extends Fragment implements RetainedFragmentInteractio
     }
 
     @Override
-    public void startBackgroundServiceNeeded() {
+    public void startBackgroundServiceNeeded()
+    {
         // check if the background service is running, if not then start it
-        if (!isBackgroundServiceRunning()) {
+        if (!isBackgroundServiceRunning())
+        {
             Intent intent = new Intent(getActivity(), BackgroundService.class);
             getActivity().startService(intent);
-            Log.d("background_service", "BackgroundService  TOLD TO START!");
-
+            Log.d("doggo", "BackgroundService TOLD TO START!");
         }
 
     }

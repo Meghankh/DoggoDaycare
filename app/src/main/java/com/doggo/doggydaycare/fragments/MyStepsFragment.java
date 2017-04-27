@@ -44,7 +44,7 @@ public class MyStepsFragment extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        Log.d("MyStepsFragment:", "Messages Fragment ON_CREATE_VIEW()");
+        Log.d("doggo:", "Messages Fragment ON_CREATE_VIEW()");
         View view = inflater.inflate(R.layout.fragment_mysteps, container, false);
 
         mChart = (LineChart) view.findViewById(R.id.chart1);
@@ -131,7 +131,7 @@ public class MyStepsFragment extends Fragment
         data.add(new Entry(1487360560,6600));
         data.add(new Entry(1487370560,15000));
 
-        LineDataSet   temp = new LineDataSet(data,"username" );
+        LineDataSet temp = new LineDataSet(data, "username");
 
         temp.setAxisDependency(YAxis.AxisDependency.LEFT);
 
@@ -147,15 +147,13 @@ public class MyStepsFragment extends Fragment
         temp.setHighLightColor(Color.rgb(144, 217, 117));
         temp.setDrawCircleHole(false);
         lineDataSet.add(temp);
+
         // for(Entry entry:){
         // }
 
         LineData lineData=new LineData(lineDataSet.get(0));;
-
         lineData = new LineData(lineDataSet.get(0));
-
         lineData.setValueTextColor(Color.WHITE);
-
         lineData.setValueTextSize(9f);
 
         mChart.setData(lineData);

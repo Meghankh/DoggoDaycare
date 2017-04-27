@@ -11,7 +11,8 @@ public class Owner
     private String lastName;
     private ArrayList<Dog> dogs;
 
-    public Owner(String firstName, String lastName) {
+    public Owner(String firstName, String lastName)
+    {
         this.firstName = firstName;
         this.lastName = lastName;
         dogs = new ArrayList<Dog>();
@@ -22,23 +23,28 @@ public class Owner
         dogs.add(dog);
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public ArrayList<Dog> getDogs() {
+    public ArrayList<Dog> getDogs()
+    {
         return dogs;
     }
 }

@@ -19,44 +19,48 @@ import com.doggo.doggydaycare.interfaces.HomeScreenInteraction;
 /**
  * Created by Meghan on 2/16/2017.
  */
-public class HomeScreenFragment extends Fragment implements View.OnClickListener {
-
-
+public class HomeScreenFragment extends Fragment implements View.OnClickListener
+{
     public static final String TAG_HOME_FRAGMENT = "home_fragment";
-
     private TextView mysteps, teamsteps, myrank,teamrank;
     private ProgressBar mygoal, teamgoal;
     private HomeScreenInteraction activity;
-
     private ImageView teamFragment, myStepsFragment, teamsRankFragment;
 
-
-    public static HomeScreenFragment newInstance() {
+    public static HomeScreenFragment newInstance()
+    {
         HomeScreenFragment fragment = new HomeScreenFragment();
         return fragment;
     }
 
-    public HomeScreenFragment() {
+    public HomeScreenFragment()
+    {
         // Required empty public constructor
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public void onResume() {
+    public void onResume()
+    {
         super.onResume();
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context)
+    {
         super.onAttach(context);
-        if (context instanceof HomeScreenInteraction) {
+        if (context instanceof HomeScreenInteraction)
+        {
             activity = (HomeScreenInteraction) context;
 
-        } else {
+        }
+        else
+        {
             throw new RuntimeException(context.toString()
                     + " must implement HomeScreenInteraction");
         }
@@ -64,10 +68,9 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-
 
         mysteps = (TextView)view.findViewById(R.id.mysteps);
         teamsteps = (TextView)view.findViewById(R.id.teamsteps);
@@ -96,23 +99,23 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         teamrank.setText("4/14");
 
         return view;
-
     }
 
     @Override
-    public void onClick(View v) {
-
-        Log.d("hw3","view clicked "+v.getId());
-        if(v.equals(teamFragment)){
-
+    public void onClick(View v)
+    {
+        Log.d("doggo", "view clicked " + v.getId());
+        if (v.equals(teamFragment))
+        {
             activity.changeFragment(TeamFragment.TAG_TEAM_FRAGMENT);
         }
-        if(v.equals(myStepsFragment)){
-
+        if (v.equals(myStepsFragment))
+        {
             activity.changeFragment(MyStepsFragment.TAG_MY_STEPS_FRAGMENT);
         }
-        if(v.equals(teamsRankFragment)){
-            Log.d("hw3","teamsrank");
+        if (v.equals(teamsRankFragment))
+        {
+            Log.d("doggo", "teamsrank");
             activity.changeFragment(TeamsRankFragment.TAG_TEAM_RANK_FRAGMENT);
         }
     }

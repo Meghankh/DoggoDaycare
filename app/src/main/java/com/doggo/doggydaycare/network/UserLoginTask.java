@@ -72,7 +72,7 @@ public class UserLoginTask extends AsyncTask<String, Void, String>
     @Override
     protected void onCancelled()
     {
-
+        // Empty
     }
 
     private void saveInSharedPreferences(String result)

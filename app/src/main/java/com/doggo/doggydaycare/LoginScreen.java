@@ -25,7 +25,8 @@ public class LoginScreen extends Activity implements View.OnClickListener, LogIn
     Boolean busyNetworking=false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -39,8 +40,10 @@ public class LoginScreen extends Activity implements View.OnClickListener, LogIn
     }
 
     @Override
-    public void onClick(View v) {
-        if(!busyNetworking){
+    public void onClick(View v)
+    {
+        if (!busyNetworking)
+        {
             logintask = new UserLoginTask(this,username.getText().toString(),password.getText().toString());
             logintask.execute();
         }
@@ -50,9 +53,10 @@ public class LoginScreen extends Activity implements View.OnClickListener, LogIn
     public void LoginStatus(String status)
     {
         //saving login status into persistence
-        editor.putString("status",status).commit();
+        editor.putString("status", status).commit();
 
-        if (status != Constants.STATUS_RELOGIN) {
+        if (status != Constants.STATUS_RELOGIN)
+        {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra(status,true);
             this.startActivity(intent);
@@ -65,8 +69,9 @@ public class LoginScreen extends Activity implements View.OnClickListener, LogIn
     }
 
     @Override
-    public void NetworkingFlagUpdate(Boolean busyNetworking) {
-        this.busyNetworking=busyNetworking;
+    public void NetworkingFlagUpdate(Boolean busyNetworking)
+    {
+        this.busyNetworking = busyNetworking;
     }
 }
 

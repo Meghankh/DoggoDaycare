@@ -27,29 +27,34 @@ public class TeamFragment extends Fragment
     private ListView memberList;
     private TeamMemberArrayAdapter teamMemberListAdapter;
 
-    public static TeamFragment newInstance() {
+    public static TeamFragment newInstance()
+    {
         TeamFragment fragment = new TeamFragment();
         return fragment;
     }
 
-    public TeamFragment() {
+    public TeamFragment()
+    {
         // Required empty public constructor
     }
 
-    private class TeamMemberArrayAdapter extends ArrayAdapter<TeamMember> {
+    private class TeamMemberArrayAdapter extends ArrayAdapter<TeamMember>
+    {
         private final Context context;
         private final ArrayList<TeamMember> members;
         private int id;
 
-        public TeamMemberArrayAdapter(Context context, int id , ArrayList members) {
+        public TeamMemberArrayAdapter(Context context, int id , ArrayList members)
+        {
             super(context, id, members);
             this.context = context;
-            this.members=members;
+            this.members = members;
             this.id = id;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rowView = inflater.inflate(R.layout.team_member_list_view_layout, parent, false);
@@ -92,19 +97,19 @@ public class TeamFragment extends Fragment
         members.add(new TeamMember("F",5000,13000 ));
 
         //int temp=0;
-        //        for(int i=0;i<6;i++){
-        //            temp=0;
-        //            try{
-        //                temp = (int) prefs.getInt(i+"th",0);
+        // for(int i=0;i<6;i++){
+        //     temp=0;
+        //     try{
+        //         temp = (int) prefs.getInt(i+"th",0);
         //
-        //            }
-        //            catch(Exception e){
-        //                temp =0;
-        //            }
-        //            if(prefs.getString(i+"","0")!="0")
-        //                members.add(new TeamMember(prefs.getString(i+"","0"),temp,10000 ));
+        //     }
+        //     catch(Exception e){
+        //         temp =0;
+        //     }
+        //     if(prefs.getString(i+"","0")!="0")
+        //         members.add(new TeamMember(prefs.getString(i+"","0"),temp,10000 ));
         //
-        //        }
+        // }
         memberList = (ListView)view.findViewById(R.id.team_members);
         teamMemberListAdapter= new TeamMemberArrayAdapter(getActivity(), R.layout.team_member_list_view_layout, members);
         memberList.setAdapter(teamMemberListAdapter);

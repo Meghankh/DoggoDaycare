@@ -182,7 +182,7 @@ public class BackgroundService extends Service implements SensorEventListener
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy)
     {
-
+        // Empty
     }
 
     // BroadcastRecevier receiver

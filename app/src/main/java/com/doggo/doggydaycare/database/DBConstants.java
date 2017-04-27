@@ -3,8 +3,8 @@ package com.doggo.doggydaycare.database;
 /**
  * Created by Meghan on 4/8/2017.
  */
-public class DBConstants {
-
+public class DBConstants
+{
     public static final String TABLE_NAME = "step_progress";
 
     // this is the primary key
