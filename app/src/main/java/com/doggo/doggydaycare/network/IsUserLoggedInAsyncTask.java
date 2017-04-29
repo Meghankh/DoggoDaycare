@@ -13,11 +13,14 @@ import com.doggo.doggydaycare.fragments.TaskFragment;
 import com.doggo.doggydaycare.interfaces.RetainedFragmentInteraction;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
+import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -74,21 +77,31 @@ public class IsUserLoggedInAsyncTask extends AsyncTask<Void,Void,String>
         {
             System.setProperty("http.keepAlive", "false");
             HttpURLConnection conn = (HttpURLConnection) ((new URL(
-                    context.getString(R.string.logged_in_url) + "?" + user).openConnection()));
+                    context.getString(R.string.aws)).openConnection()));
             conn.setReadTimeout(MainActivity.READ_TIMEOUT_MS /* milliseconds */);
             conn.setConnectTimeout(MainActivity.CONNECT_TIMEOUT_MS /* milliseconds */);
             conn.setRequestProperty("Cookie", mCookie);
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
-            conn.setRequestMethod("GET");
+            conn.setRequestMethod("POST");
             conn.connect();
+
+            JSONObject credentials = new JSONObject();
+            credentials.put("action", "check_login");
+            credentials.put("username", user);
+
+            Log.d("doggo", "Sending user to server... url" + context.getString(R.string.aws)+ " username:" + user);
+            Writer osw = new OutputStreamWriter(conn.getOutputStream());
+            osw.write(credentials.toString());
+            osw.flush();
+            osw.close();
 
             // handling the response
             final int HttpResultCode = conn.getResponseCode();
 
             is = conn.getResponseCode() >= 400 ? conn.getErrorStream() : conn.getInputStream();
             String response = readInputStream(is, 2).substring(0, 1);
-            Log.d("fitex","response inside logged in: "+HttpResultCode);
+            Log.d("doggo","response inside logged in: " + HttpResultCode);
             // TODO: get username and email and display in navigation drawer
 
             if (!response.contains("0"))

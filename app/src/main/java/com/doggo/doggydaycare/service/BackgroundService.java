@@ -166,7 +166,7 @@ public class BackgroundService extends Service implements SensorEventListener
         editor = prefs.edit();
         editor.putFloat("steps", steps);
         editor.commit();
-        Log.d("background_service", "Steps:" + steps);
+        Log.d("doggo", "Steps:" + steps);
 
         // TODO: here you populate the ContentValues object and save it in the ArrayList
         ContentValues values = new ContentValues();

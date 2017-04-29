@@ -29,7 +29,9 @@ public class DBController
     private Context context;
     private Socket mSocket;
 
-    public DBController(Context context, BackgroundService background_service, Application application)
+    public DBController(Context context,
+                        BackgroundService background_service,
+                        Application application)
     {
         db_helper = new StepCountDB(context);
         this.background_service = background_service;
@@ -80,7 +82,7 @@ public class DBController
         {
             db.insert(DBConstants.TABLE_NAME, null, tracked_steps.get(i));
         }
-        UploadSteps();
+        // UploadSteps();
         background_service.EraseBufferedSteps();
     }
 

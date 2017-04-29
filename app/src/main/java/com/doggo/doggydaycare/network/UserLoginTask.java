@@ -13,8 +13,10 @@ import com.doggo.doggydaycare.interfaces.LogInScreenInteraction;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.HttpURLConnection;
@@ -91,14 +93,14 @@ public class UserLoginTask extends AsyncTask<String, Void, String>
     {
         InputStream is = null;
         String cookie = "empty cookie";
-        String result="relogin";
+        String result = "relogin";
 
         try
         {
             System.setProperty("http.keepAlive", "false");
-            Log.d("FitEx", "Creating connection to server for logging in.. url"+ context.getString(R.string.login_url)+ " username:"+ username +" password:"+ password);
+            Log.d("doggo", "Creating connection to server for logging in.. url " + context.getString(R.string.aws) + " username:" + username + " password:" + password);
             HttpURLConnection conn = (HttpURLConnection) ((new URL(
-                    context.getString(R.string.login_url)).openConnection()));
+                    context.getString(R.string.aws)).openConnection()));
             conn.setDoOutput(true);
             conn.setReadTimeout(MainActivity.READ_TIMEOUT_MS /* milliseconds */);
             conn.setConnectTimeout(MainActivity.CONNECT_TIMEOUT_MS /* milliseconds */);
@@ -109,10 +111,11 @@ public class UserLoginTask extends AsyncTask<String, Void, String>
             conn.connect();
 
             JSONObject credentials = new JSONObject();
+            credentials.put("action", "login");
             credentials.put("username", username);
             credentials.put("password", password);
 
-            Log.d("FitEx", "Sending login credentials to server... url"+ context.getString(R.string.login_url)+ " username:"+ username +" password:"+ password);
+            Log.d("doggo", "Sending login credentials to server... url" + context.getString(R.string.aws)+ " username:" + username + " password:" + password);
             Writer osw = new OutputStreamWriter(conn.getOutputStream());
             osw.write(credentials.toString());
             osw.flush();
@@ -121,24 +124,50 @@ public class UserLoginTask extends AsyncTask<String, Void, String>
             final int HttpResultCode = conn.getResponseCode();
             is = HttpResultCode >= 400 ? conn.getErrorStream() : conn.getInputStream();
 
-            Log.d("FitEx", "Reposne is: " + HttpResultCode);
+            Log.d("doggo", "Response is: " + HttpResultCode);
             if (HttpResultCode == HttpURLConnection.HTTP_OK)
             {
+                Log.d("doggo", "Response is: " + conn.getContent());
+                BufferedReader reader;
+                String text = "";
+                try
+                {
+                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    StringBuilder sb = new StringBuilder();
+                    String line = null;
+
+                    // Read Server Response
+                    while((line = reader.readLine()) != null)
+                    {
+                        // Append server response in string
+                        sb.append(line + "\n");
+                    }
+                    text = sb.toString();
+                    reader.close();
+                }
+                catch(Exception e)
+                {
+
+                }
+
+                // Show response on activity
+                Log.d("doggo", text);
+
                 Map<String, List<String>> headerFields = conn.getHeaderFields();
                 List<String> cookiesHeader = headerFields.get(context.getString(R.string.cookies_header));
                 cookie = cookiesHeader.get(0).substring(0, cookiesHeader.get(0).indexOf(";"));
                 saveInSharedPreferences(cookie);
-                result =Constants.STATUS_LOGGED_IN;
+                result = Constants.STATUS_LOGGED_IN;
             }
-            else if(HttpResultCode==401)
+            else if (HttpResultCode == 401)
             {
-                Log.d("FitEx", "Did not receive HTTP_OK from server!:"+401);
-                result=Constants.STATUS_RELOGIN;
+                Log.d("doggo", "Did not receive HTTP_OK from server!:"+401);
+                result = Constants.STATUS_RELOGIN;
             }
             else
             {
-                result=Constants.STATUS_OFFLINE;
-                Log.d("FitEx", "Did not receive HTTP_OK from server!--other");
+                result = Constants.STATUS_OFFLINE;
+                Log.d("doggo", "Did not receive HTTP_OK from server!--other");
             }
             conn.disconnect();
         }

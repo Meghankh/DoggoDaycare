@@ -9,5 +9,6 @@
     <string name="logged_in_url">http://128.173.239.242/loggedin</string>
     <string name="logout_url">http://128.173.239.242/logout</string>
     <string name="base_url">http://128.173.239.242</string>
+    <string name="aws">http://54.193.106.184/DoggoDB/doggoAPI.php</string>
     <string name="cookies_header">Set-Cookie</string>
 </resources>

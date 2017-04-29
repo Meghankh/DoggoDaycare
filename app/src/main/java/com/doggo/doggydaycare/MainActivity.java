@@ -104,14 +104,16 @@ public class MainActivity extends AppCompatActivity implements HomeScreenInterac
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             // TODO
         }
-        else if (id == R.id.action_message) {
+        else if (id == R.id.action_message)
+        {
             // TODO
         }
-
-        else if (id == R.id.action_logout) {
+        else if (id == R.id.action_logout)
+        {
             // Log the user out
             prefs.edit().remove("status").apply();
             Intent intent = new Intent(getBaseContext(), LoginScreen.class);
@@ -148,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements HomeScreenInterac
             if (fragmentClass != null)
             {
                 fragment = (Fragment) fragmentClass.newInstance();
-                FragmentTransaction ft= fragmentManager.beginTransaction();
+                FragmentTransaction ft = fragmentManager.beginTransaction();
                 ft.replace(R.id.frame, fragment,
                         ((RetainedFragmentInteraction)taskFragment).getActiveFragmentTag());
                 ft.addToBackStack(null);
