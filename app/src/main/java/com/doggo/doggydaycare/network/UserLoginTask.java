@@ -35,7 +35,7 @@ public class UserLoginTask extends AsyncTask<String, Void, String>
     {
         this.username = username;
         this.password = password;
-        this.context=context;
+        this.context = context;
         this.activity = (LogInScreenInteraction)context;
     }
 

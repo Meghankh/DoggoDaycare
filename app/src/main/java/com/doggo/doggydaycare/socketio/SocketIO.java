@@ -14,7 +14,7 @@ public class SocketIO extends Application
     {
         try
         {
-            mSocket = IO.socket("http://128.173.239.242/");
+            mSocket = IO.socket("http://54.193.106.184/DoggoDB/doggoAPI.php");
         }
         catch (URISyntaxException e)
         {

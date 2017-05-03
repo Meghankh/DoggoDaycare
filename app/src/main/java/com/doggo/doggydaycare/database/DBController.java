@@ -3,22 +3,12 @@ package com.doggo.doggydaycare.database;
 import android.app.Application;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.doggo.doggydaycare.service.BackgroundService;
-import com.doggo.doggydaycare.socketio.SocketIO;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import io.socket.client.Socket;
 
 public class DBController
 {
@@ -27,7 +17,7 @@ public class DBController
     private volatile Boolean processing = false;
     private BackgroundService background_service;
     private Context context;
-    private Socket mSocket;
+    //private Socket mSocket;
 
     public DBController(Context context,
                         BackgroundService background_service,
@@ -36,9 +26,10 @@ public class DBController
         db_helper = new StepCountDB(context);
         this.background_service = background_service;
         this.context = context;
-        SocketIO app = (SocketIO)application;
-        mSocket = app.getSocket();
-        mSocket.connect();
+
+        //SocketIO app = (SocketIO)application;
+        //mSocket = app.getSocket();
+        //mSocket.connect();
     }
 
     // You need to call this open up the database
@@ -88,6 +79,7 @@ public class DBController
 
     private void UploadSteps()
     {
+        /*
         Log.d("db", "Upload steps called" + " isFree " + IsFree());
         if (db.isOpen() && IsFree())
         {
@@ -162,7 +154,8 @@ public class DBController
 
                 }
             }.execute();
-        }
+
+        }*/
     }
 }
 
