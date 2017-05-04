@@ -19,16 +19,9 @@ import android.widget.Toast;
 
 import com.doggo.doggydaycare.database.DBConstants;
 import com.doggo.doggydaycare.database.DBController;
-import com.doggo.doggydaycare.socketio.SocketIO;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 
 public class BackgroundService extends Service implements SensorEventListener
 {
@@ -36,7 +29,7 @@ public class BackgroundService extends Service implements SensorEventListener
     private SensorManager mSensorManager;
 
     SharedPreferences prefs;
-    private Socket mSocket;
+    //private Socket mSocket;
 
     private int minute = 0;
 
@@ -75,7 +68,7 @@ public class BackgroundService extends Service implements SensorEventListener
         // We need to register our local broadcast receiver
         registerReceiver(receiver, filter);
 
-        Log.d("background_service", "BackgroundService Started!");
+        Log.d("doggo", "BackgroundService Started!");
 
         //sensor manager allows us to get access to all of the sensors that your device is offering you.
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -95,15 +88,15 @@ public class BackgroundService extends Service implements SensorEventListener
         }
 
         // Get the socket from the Application and then connect.
-        SocketIO app = (SocketIO) getApplication();
-        mSocket = app.getSocket();
-        mSocket.connect();
+        //SocketIO app = (SocketIO) getApplication();
+        //mSocket = app.getSocket();
+        //mSocket.connect();
 
         //TODO: save the confirmation inside the temporary ArrayList<Long> (you need to create one)
         contentValuesArrayList = new ArrayList<ContentValues>();
         timestampArraylist = new ArrayList<Long>();
 
-        mSocket.on("step_confirmation", new Emitter.Listener()
+        /*mSocket.on("step_confirmation", new Emitter.Listener()
         {
             @Override
             public void call(final Object... args)
@@ -120,7 +113,7 @@ public class BackgroundService extends Service implements SensorEventListener
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
 
         // Lets initiate the database controller
         database_controller = new DBController(getApplicationContext(), this, getApplication());
@@ -140,10 +133,10 @@ public class BackgroundService extends Service implements SensorEventListener
         database_controller = null;
 
         //also disconnect the mSocket
-        if (mSocket != null)
-        {
-            mSocket.disconnect();
-        }
+        //if (mSocket != null)
+        //{
+        //    mSocket.disconnect();
+        //}
         super.onDestroy();
     }
 
@@ -193,7 +186,7 @@ public class BackgroundService extends Service implements SensorEventListener
         {
             // extracing the string that the action is bringin in
             String action = intent.getAction();
-            Log.d("broadcast_service", "action received:" + action.toString());
+            Log.d("doggo", "action received:" + action.toString());
             // if our action contains "TIME_TICK" we upload to the server via socket
             if (action.contains("TIME_TICK"))
             {
@@ -216,13 +209,13 @@ public class BackgroundService extends Service implements SensorEventListener
 
     public void EraseConfirmedSteps()
     {
-        Log.d("db", "confirmed cleared");
+        Log.d("doggo", "confirmed cleared");
         timestampArraylist.clear();
     }
 
     public void EraseBufferedSteps()
     {
-        Log.d("db", "steps buffer cleared");
+        Log.d("doggo", "steps buffer cleared");
         contentValuesArrayList.clear();
     }
 }

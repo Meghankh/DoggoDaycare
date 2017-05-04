@@ -152,6 +152,12 @@ public class UserLoginTask extends AsyncTask<String, Void, String>
 
                 // Show response on activity
                 Log.d("doggo", text);
+                JSONObject jsonObj = new JSONObject(text);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("user_id", jsonObj.getString("userID"));
+                editor.apply();
 
                 Map<String, List<String>> headerFields = conn.getHeaderFields();
                 List<String> cookiesHeader = headerFields.get(context.getString(R.string.cookies_header));
