@@ -19,18 +19,15 @@ public class Dog
     public Dog(String name,
                int age,
                double weight,
-               String gender,
-               Time feedTime,
-               Date lastGroom,
-               String[] medications)
+               String gender)
     {
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.gender = gender;
-        this.feedTime = feedTime;
-        this.lastGroom = lastGroom;
-        this.medications = medications;
+        //this.feedTime = feedTime;
+        //this.lastGroom = lastGroom;
+        //this.medications = medications;
     }
 
     public String getName()

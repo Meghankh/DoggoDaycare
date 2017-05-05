@@ -9,11 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.doggo.doggydaycare.R;
-import com.doggo.doggydaycare.data.TeamMember;
+import com.doggo.doggydaycare.data.Dog;
 
 import java.util.ArrayList;
 
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 public class TeamFragment extends Fragment
 {
     public static final String TAG_TEAM_FRAGMENT = "team_fragment";
-    private ArrayList<TeamMember> members;
+    private ArrayList<Dog> members;
     private ListView memberList;
     private TeamMemberArrayAdapter teamMemberListAdapter;
 
@@ -38,10 +37,10 @@ public class TeamFragment extends Fragment
         // Required empty public constructor
     }
 
-    private class TeamMemberArrayAdapter extends ArrayAdapter<TeamMember>
+    private class TeamMemberArrayAdapter extends ArrayAdapter<Dog>
     {
         private final Context context;
-        private final ArrayList<TeamMember> members;
+        private final ArrayList<Dog> members;
         private int id;
 
         public TeamMemberArrayAdapter(Context context, int id , ArrayList members)
@@ -59,16 +58,14 @@ public class TeamFragment extends Fragment
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rowView = inflater.inflate(R.layout.team_member_list_view_layout, parent, false);
             TextView name = (TextView) rowView.findViewById(R.id.name);
-            TextView steps = (TextView) rowView.findViewById(R.id.steps);
-            TextView goal = (TextView) rowView.findViewById(R.id.goal);
-
-            ProgressBar progressBar = (ProgressBar)rowView.findViewById(R.id.progress_goal);
+            TextView age = (TextView) rowView.findViewById(R.id.age);
+            TextView gender = (TextView) rowView.findViewById(R.id.gender);
+            TextView weight = (TextView) rowView.findViewById(R.id.weight);
 
             name.setText(members.get(position).getName()+"'s steps");
-            steps.setText(members.get(position).getSteps()+"");
-            goal.setText(members.get(position).getGoal()+"");
-
-            progressBar.setProgress(Math.round(((float)members.get(position).getSteps()/(float)members.get(position).getGoal())*100));
+            age.setText(members.get(position).getAge()+" years");
+            gender.setText(members.get(position).getGender()+"");
+            weight.setText(members.get(position).getWeight()+" lbs");
 
             return rowView;
         }
@@ -87,14 +84,14 @@ public class TeamFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        members = new ArrayList<TeamMember>();
+        members = new ArrayList<Dog>();
 
-        members.add(new TeamMember("A",10000,20000 ));
-        members.add(new TeamMember("B",5000,15000 ));
-        members.add(new TeamMember("C",6700,18000 ));
-        members.add(new TeamMember("D",1000,3000 ));
-        members.add(new TeamMember("E",10000,50000 ));
-        members.add(new TeamMember("F",5000,13000 ));
+        members.add(new Dog("Daisy", 2, 20.0, "Female"));
+        members.add(new Dog("Becky", 3, 15.0, "Female"));
+        members.add(new Dog("Cody", 3, 18.0, "Male"));
+        members.add(new Dog("Dog", 1, 30.0, "Male"));
+        members.add(new Dog("Eddy", 3, 50.0, "Male"));
+        members.add(new Dog("Fred", 4, 13.0, "Male"));
 
         //int temp=0;
         // for(int i=0;i<6;i++){
