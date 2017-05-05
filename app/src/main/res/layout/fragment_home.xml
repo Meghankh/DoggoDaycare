@@ -18,7 +18,7 @@
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="115dp"
         android:layout_height="84dp"
-        app:srcCompat="@drawable/ic_my_rank"
+        app:srcCompat="@drawable/ic_animal_pet_dog_icon_13"
         android:id="@+id/teamFragment"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
