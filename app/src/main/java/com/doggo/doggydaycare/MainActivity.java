@@ -104,15 +104,7 @@ public class MainActivity extends AppCompatActivity implements HomeScreenInterac
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings)
-        {
-            // TODO
-        }
-        else if (id == R.id.action_message)
-        {
-            // TODO
-        }
-        else if (id == R.id.action_logout)
+        if (id == R.id.action_logout)
         {
             // Log the user out
             prefs.edit().remove("status").apply();

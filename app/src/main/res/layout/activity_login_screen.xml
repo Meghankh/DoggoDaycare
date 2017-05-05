@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/login_background"
+    android:background="@drawable/background"
     android:layout_height="match_parent">
 
     <EditText
@@ -29,7 +29,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="110dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -45,7 +46,7 @@
         android:layout_height="68dp"
         android:text="@string/login_label"
         android:textColor="#ffffffff"
-        android:background="@drawable/ic_19760"
+        android:background="@drawable/ic_bone_free_download_png"
         android:id="@+id/button"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
