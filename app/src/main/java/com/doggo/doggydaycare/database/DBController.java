@@ -34,7 +34,6 @@ public class DBController
     private volatile Boolean processing = false;
     private BackgroundService background_service;
     private Context context;
-    //private Socket mSocket;
 
     public DBController(Context context,
                         BackgroundService background_service,
@@ -43,10 +42,6 @@ public class DBController
         db_helper = new StepCountDB(context);
         this.background_service = background_service;
         this.context = context;
-
-        //SocketIO app = (SocketIO)application;
-        //mSocket = app.getSocket();
-        //mSocket.connect();
     }
 
     // You need to call this open up the database
@@ -89,7 +84,6 @@ public class DBController
         for (int i = 0; i < tracked_steps.size(); i++)
         {
             db.insert(DBConstants.TABLE_NAME, null, tracked_steps.get(i));
-            // Log.d("doggo", "insert " + tracked_steps.get(i));
         }
         UploadSteps();
         background_service.EraseBufferedSteps();
@@ -112,19 +106,9 @@ public class DBController
                     String mCookie = prefs.getString("sessionid", "");
                     String user_id = prefs.getString("user_id", "");
 
-                    //Log.d("doggo", "Cookie: " + mCookie);
-                    //Log.d("doggo", "User ID: " + user_id);
-
-                    //cursor = db.rawQuery("SELECT count(*) as test FROM " + DBConstants.TABLE_NAME, null);
-                    //cursor.moveToFirst();
-                    //Log.d("doggo", "TEST " + cursor.getString(cursor.getColumnIndex("test")));
-                    //cursor.close();
-
-                    //Log.d("doggo", "outside try.");
                     InputStream is = null;
                     try
                     {
-                        //Log.d("doggo", "SELECT * FROM " + DBConstants.TABLE_NAME);
                         processing = true;
 
                         cursor = db.rawQuery("SELECT * FROM " + DBConstants.TABLE_NAME, null);
@@ -137,9 +121,6 @@ public class DBController
                                 total = cursor.getFloat(cursor.getColumnIndex(DBConstants.COLUMN_NAME_TOTAL_VALUE));
                                 String date = cursor.getString(cursor.getColumnIndex(DBConstants.COLUMN_NAME_ENTRY_DATE));
                                 Long epoch = cursor.getLong(cursor.getColumnIndex(DBConstants.COLUMN_NAME_ENTRY_DATE_EPOCH));
-
-                                //Log.d("doggo", date + "");
-                                //Log.d("doggo", total + "");
 
                                 JSONObject credentials = new JSONObject();
                                 try
@@ -167,7 +148,6 @@ public class DBController
                                 conn.setRequestMethod("POST");
                                 conn.connect();
 
-                                //Log.d("doggo", "Sending user to server... url" + context.getString(R.string.aws)+ " .");
                                 Writer osw = new OutputStreamWriter(conn.getOutputStream());
                                 osw.write(credentials.toString());
                                 osw.flush();
@@ -192,7 +172,6 @@ public class DBController
                     }
                     catch (Exception e)
                     {
-                        //Log.d("doggo", "Except occurred");
                         e.printStackTrace();
                     }
                     finally
