@@ -81,22 +81,13 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         myStepsFragment = (ImageView)view.findViewById(R.id.myStepsFragment);
         teamsRankFragment = (ImageView)view.findViewById(R.id.teamsRankFragment);
 
-        mygoal = (ProgressBar)view.findViewById(R.id.mygoal);
-        teamgoal = (ProgressBar)view.findViewById(R.id.teamgoal);
-
         teamFragment.setOnClickListener(this);
         myStepsFragment.setOnClickListener(this);
         teamsRankFragment.setOnClickListener(this);
 
-        mygoal.setMax(100);
-        mygoal.setProgress(35);
-        teamgoal.setMax(100);
-        teamgoal.setProgress(49);
-
         mysteps.setText(PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).getFloat("steps",0)+" steps");
-        teamsteps.setText("32,343 steps");
-        myrank.setText("2/4");
-        teamrank.setText("4/14");
+        myrank.setText("View Dogs");
+        teamrank.setText("View Profile");
 
         return view;
     }
