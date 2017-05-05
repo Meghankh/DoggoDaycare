@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.doggo.doggydaycare.R;
@@ -22,10 +21,9 @@ import com.doggo.doggydaycare.interfaces.HomeScreenInteraction;
 public class HomeScreenFragment extends Fragment implements View.OnClickListener
 {
     public static final String TAG_HOME_FRAGMENT = "home_fragment";
-    private TextView mysteps, teamsteps, myrank,teamrank;
-    private ProgressBar mygoal, teamgoal;
+    private TextView dogLabel, userLabel, calendarLabel;
     private HomeScreenInteraction activity;
-    private ImageView teamFragment, myStepsFragment, teamsRankFragment;
+    private ImageView dog, user, calendar;
 
     public static HomeScreenFragment newInstance()
     {
@@ -72,22 +70,21 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
     {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        mysteps = (TextView)view.findViewById(R.id.mysteps);
-        teamsteps = (TextView)view.findViewById(R.id.teamsteps);
-        myrank = (TextView)view.findViewById(R.id.myrank);
-        teamrank = (TextView)view.findViewById(R.id.teamrank);
+        dogLabel = (TextView)view.findViewById(R.id.dogLabel);
+        userLabel = (TextView)view.findViewById(R.id.userLabel);
+        calendarLabel = (TextView)view.findViewById(R.id.calendarLabel);
 
-        teamFragment = (ImageView)view.findViewById(R.id.teamFragment);
-        myStepsFragment = (ImageView)view.findViewById(R.id.myStepsFragment);
-        teamsRankFragment = (ImageView)view.findViewById(R.id.teamsRankFragment);
+        dog = (ImageView)view.findViewById(R.id.dog);
+        user = (ImageView)view.findViewById(R.id.user);
+        calendar = (ImageView)view.findViewById(R.id.calendar);
 
-        teamFragment.setOnClickListener(this);
-        myStepsFragment.setOnClickListener(this);
-        teamsRankFragment.setOnClickListener(this);
+        dog.setOnClickListener(this);
+        user.setOnClickListener(this);
+        calendar.setOnClickListener(this);
 
-        mysteps.setText(PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).getFloat("steps",0)+" steps");
-        myrank.setText("View Dogs");
-        teamrank.setText("View Profile");
+        calendarLabel.setText(PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).getFloat("steps",0)+" steps");
+        dogLabel.setText("View Dogs");
+        userLabel.setText("View Profile");
 
         return view;
     }
@@ -96,17 +93,16 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
     public void onClick(View v)
     {
         Log.d("doggo", "view clicked " + v.getId());
-        if (v.equals(teamFragment))
+        if (v.equals(dog))
         {
             activity.changeFragment(TeamFragment.TAG_TEAM_FRAGMENT);
         }
-        if (v.equals(myStepsFragment))
+        if (v.equals(calendar))
         {
             activity.changeFragment(MyStepsFragment.TAG_MY_STEPS_FRAGMENT);
         }
-        if (v.equals(teamsRankFragment))
+        if (v.equals(user))
         {
-            Log.d("doggo", "teamsrank");
             activity.changeFragment(TeamsRankFragment.TAG_TEAM_RANK_FRAGMENT);
         }
     }
