@@ -81,39 +81,14 @@ public class BackgroundService extends Service implements SensorEventListener
         {
             mSensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
-        //if not then pop a toast that will let you know
         else
         {
             Toast.makeText(this, "TYPE_STEP_COUNTER not available", Toast.LENGTH_LONG).show();
         }
 
-        // Get the socket from the Application and then connect.
-        //SocketIO app = (SocketIO) getApplication();
-        //mSocket = app.getSocket();
-        //mSocket.connect();
-
         //TODO: save the confirmation inside the temporary ArrayList<Long> (you need to create one)
         contentValuesArrayList = new ArrayList<ContentValues>();
         timestampArraylist = new ArrayList<Long>();
-
-        /*mSocket.on("step_confirmation", new Emitter.Listener()
-        {
-            @Override
-            public void call(final Object... args)
-            {
-                try
-                {
-                    Log.d("socketio", ((JSONObject) args[0]).getString("epoch")
-                            + " from user " + ((JSONObject) args[0]).getString("username"));
-                    //TODO: what happens here?
-                    timestampArraylist.add(Long.parseLong(((JSONObject)args[0]).getString("epoch")));
-                }
-                catch (JSONException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        });*/
 
         // Lets initiate the database controller
         database_controller = new DBController(getApplicationContext(), this, getApplication());
@@ -132,11 +107,6 @@ public class BackgroundService extends Service implements SensorEventListener
         database_controller.CloseDB();
         database_controller = null;
 
-        //also disconnect the mSocket
-        //if (mSocket != null)
-        //{
-        //    mSocket.disconnect();
-        //}
         super.onDestroy();
     }
 

@@ -43,9 +43,8 @@
 
     <Button
         android:layout_width="111dp"
-        android:layout_height="68dp"
+        android:layout_height="98dp"
         android:text="@string/login_label"
-        android:textColor="#ffffffff"
         android:background="@drawable/ic_bone_free_download_png"
         android:id="@+id/button"
         android:layout_marginStart="16dp"
