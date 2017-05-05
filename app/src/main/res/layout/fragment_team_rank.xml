@@ -1,23 +1,56 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
     tools:context="com.doggo.doggydaycare.fragments.TeamsRankFragment">
 
-    <ListView
-        android:id="@+id/teams"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="111dp"
+        android:layout_height="68dp"
+        app:srcCompat="@drawable/ic_couple_silhouette_male_and_female_psd_8iij99_clipa"
+        android:id="@+id/picture"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lastname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        custom:layout_constraintBottom_toBottomOf="parent"
-        custom:layout_constraintLeft_toLeftOf="parent"
-        custom:layout_constraintRight_toRightOf="parent"
-        custom:layout_constraintTop_toTopOf="parent"
-        custom:layout_constraintHorizontal_bias="0.0"
-        custom:layout_constraintVertical_bias="0.0" />
+        android:text="last name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/picture"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="first name"
+        app:layout_constraintTop_toBottomOf="@+id/lastname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="steps"
+        app:layout_constraintTop_toBottomOf="@+id/firstname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp" />
+
 
 </android.support.constraint.ConstraintLayout>
 
