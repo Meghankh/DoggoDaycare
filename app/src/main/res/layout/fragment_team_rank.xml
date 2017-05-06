@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:weightSum="10"
     tools:context="com.doggo.doggydaycare.fragments.TeamsRankFragment"
-    android:background="@drawable/background" >
+    android:background="@drawable/plain" >
 
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="111dp"
