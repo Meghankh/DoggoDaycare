@@ -64,7 +64,7 @@ public class TeamFragment extends Fragment
             TextView gender = (TextView) rowView.findViewById(R.id.gender);
             TextView weight = (TextView) rowView.findViewById(R.id.weight);
 
-            name.setText(members.get(position).getName()+"'s steps");
+            name.setText(members.get(position).getName()+"");
             age.setText(members.get(position).getAge()+" years");
             gender.setText(members.get(position).getGender()+"");
             weight.setText(members.get(position).getWeight()+" lbs");
