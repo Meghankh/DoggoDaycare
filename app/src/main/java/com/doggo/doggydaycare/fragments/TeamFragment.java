@@ -1,7 +1,9 @@
 package com.doggo.doggydaycare.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -84,29 +86,17 @@ public class TeamFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        int dogCount = Integer.parseInt(prefs.getString("dogCount", ""));
+
         members = new ArrayList<Dog>();
 
-        members.add(new Dog("Daisy", 2, 20.0, "Female"));
-        members.add(new Dog("Becky", 3, 15.0, "Female"));
-        members.add(new Dog("Cody", 3, 18.0, "Male"));
-        members.add(new Dog("Dog", 1, 30.0, "Male"));
-        members.add(new Dog("Eddy", 3, 50.0, "Male"));
-        members.add(new Dog("Fred", 4, 13.0, "Male"));
+        for (int i = 1; i <= dogCount; i++)
+        {
+            String array[] = prefs.getString("dog" + i, "").split(":");
+            members.add(new Dog(array[0], Integer.parseInt(array[1]), Double.parseDouble(array[2]), array[3]));
+        }
 
-        //int temp=0;
-        // for(int i=0;i<6;i++){
-        //     temp=0;
-        //     try{
-        //         temp = (int) prefs.getInt(i+"th",0);
-        //
-        //     }
-        //     catch(Exception e){
-        //         temp =0;
-        //     }
-        //     if(prefs.getString(i+"","0")!="0")
-        //         members.add(new TeamMember(prefs.getString(i+"","0"),temp,10000 ));
-        //
-        // }
         memberList = (ListView)view.findViewById(R.id.team_members);
         teamMemberListAdapter= new TeamMemberArrayAdapter(getActivity(), R.layout.team_member_list_view_layout, members);
         memberList.setAdapter(teamMemberListAdapter);
